@@ -70,11 +70,13 @@
 ## 2.2. Models train and test sets
 
 **Train and test data**
+
 **Data Augmentation**
 
 ## 2.3. Task validation data
 
 **Input data**
+
 **Expected analytics results**
 
 # Reference
