@@ -19,7 +19,7 @@ def read_video(video_path, step=10):
     """
     cap = cv2.VideoCapture(video_path)
     check_cap(cap)
-    frames_storage = init_frames_storage(cap)
+    f_storage = init_frames_storage(cap)
     frame_id = 0
     while cap.isOpened():
         ret, frame = cap.read()
@@ -27,8 +27,6 @@ def read_video(video_path, step=10):
         if not ret:
             break
         if not (frame_id % step):
-            frames_storage = np.append(
-                frames_storage, np.expand_dims(frame, 0), axis=0
-            )
+            f_storage = np.append(f_storage, np.expand_dims(frame, 0), axis=0)
     cap.release()
-    return frames_storage
+    return f_storage
