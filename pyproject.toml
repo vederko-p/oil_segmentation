@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "oil-spill-segmentation"
+version = "0.0.0"
+description = "Oil Spill Segmentation"
+authors = ["Skibin Maksim <ski6a_23@mail.ru>"]
+readme = "README.md"
+packages = [{include = "oil_spill_segmentation"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+clearml = "^1.9.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
