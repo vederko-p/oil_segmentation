@@ -45,7 +45,7 @@
 Целевые данные, с которыми будет взаимодействовать система, могут быть либо наборами кадров
 водной поверхности, либо видеозаписью всего облета местности. Пример данных:
 
-![Data example.png](imgs/data_example.png)
+![Data example](imgs/data_example.png)
 
 # 2. Dataset
 
@@ -92,7 +92,7 @@
 
 ## 3.1. Oil Detection Pipeline
 
-![](diagrams/dia1.png)
+![System design](imgs/system_design.png)
 
 # Reference
 
