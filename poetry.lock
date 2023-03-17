@@ -103,6 +103,25 @@ optional = false
 python-versions = ">=3.8"
 
 [[package]]
+name = "opencv-python"
+version = "4.7.0.72"
+description = "Wrapper package for OpenCV python bindings."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+numpy = [
+    {version = ">=1.21.0", markers = "python_version <= \"3.9\" and platform_system == \"Darwin\" and platform_machine == \"arm64\""},
+    {version = ">=1.21.2", markers = "python_version >= \"3.10\""},
+    {version = ">=1.21.4", markers = "python_version >= \"3.10\" and platform_system == \"Darwin\""},
+    {version = ">=1.22.0", markers = "python_version >= \"3.11\""},
+    {version = ">=1.19.3", markers = "python_version >= \"3.6\" and platform_system == \"Linux\" and platform_machine == \"aarch64\" or python_version >= \"3.9\""},
+    {version = ">=1.17.0", markers = "python_version >= \"3.7\""},
+    {version = ">=1.17.3", markers = "python_version >= \"3.8\""},
+]
+
+[[package]]
 name = "orderedmultidict"
 version = "1.0.1"
 description = "Ordered Multivalue Dictionary"
@@ -241,7 +260,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e030ae8ea6551d326b05c9ef55b591e2d63df7ad465269ea747cff9dcf9bdd28"
+content-hash = "8e860ad7f31f20cd5124e09a7cf5963e673eb0d1347e0794f64a030931bff659"
 
 [metadata.files]
 attrs = [
@@ -373,6 +392,15 @@ numpy = [
     {file = "numpy-1.24.2-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f9006288bcf4895917d02583cf3411f98631275bc67cce355a7f39f8c14338fa"},
     {file = "numpy-1.24.2-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:150947adbdfeceec4e5926d956a06865c1c690f2fd902efede4ca6fe2e657c3f"},
     {file = "numpy-1.24.2.tar.gz", hash = "sha256:003a9f530e880cb2cd177cba1af7220b9aa42def9c4afc2a2fc3ee6be7eb2b22"},
+]
+opencv-python = [
+    {file = "opencv-python-4.7.0.72.tar.gz", hash = "sha256:3424794a711f33284581f3c1e4b071cfc827d02b99d6fd9a35391f517c453306"},
+    {file = "opencv_python-4.7.0.72-cp37-abi3-macosx_10_16_x86_64.whl", hash = "sha256:d4f8880440c433a0025d78804dda6901d1e8e541a561dda66892d90290aef881"},
+    {file = "opencv_python-4.7.0.72-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:7a297e7651e22eb17c265ddbbc80e2ba2a8ff4f4a1696a67c45e5f5798245842"},
+    {file = "opencv_python-4.7.0.72-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cd08343654c6b88c5a8c25bf425f8025aed2e3189b4d7306b5861d32affaf737"},
+    {file = "opencv_python-4.7.0.72-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ebfc0a3a2f57716e709028b992e4de7fd8752105d7a768531c4f434043c6f9ff"},
+    {file = "opencv_python-4.7.0.72-cp37-abi3-win32.whl", hash = "sha256:eda115797b114fc16ca6f182b91c5d984f0015c19bec3145e55d33d708e9bae1"},
+    {file = "opencv_python-4.7.0.72-cp37-abi3-win_amd64.whl", hash = "sha256:812af57553ec1c6709060c63f6b7e9ad07ddc0f592f3ccc6d00c71e0fe0e6376"},
 ]
 orderedmultidict = [
     {file = "orderedmultidict-1.0.1-py2.py3-none-any.whl", hash = "sha256:43c839a17ee3cdd62234c47deca1a8508a3f2ca1d0678a3bf791c87cf84adbf3"},
