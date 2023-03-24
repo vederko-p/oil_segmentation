@@ -66,3 +66,13 @@ def extract_sub_frames(img, win_h, win_w):
         shape=new_shape,
         strides=new_strides
     )
+
+
+def slice_image(img, w_size):
+    """Returns (rows, cols, C, H, W)"""
+    crop = crop_image_by_edges(img)
+    crop_pad = padding_before_sub(crop, w_size)
+    return np.stack([
+        extract_sub_frames(crop_pad[:, :, ch], w_size, w_size)
+        for ch in range(crop_pad.shape[-1])
+    ]).transpose(1, 2, 0, 3, 4)
