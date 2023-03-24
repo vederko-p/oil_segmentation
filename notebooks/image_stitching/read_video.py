@@ -10,12 +10,13 @@ def check_cap(capture):
 
 def init_frames_storage(cap):
     _, frame = cap.read()
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     return np.expand_dims(frame, 0)
 
 
 def read_video(video_path, step=10):
     """
-    Returns batch of BGR frames with shape (n, h, w, c).
+    Returns batch of RGB frames with shape (n, h, w, c).
     """
     cap = cv2.VideoCapture(video_path)
     check_cap(cap)
@@ -27,6 +28,7 @@ def read_video(video_path, step=10):
         if not ret:
             break
         if not (frame_id % step):
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             f_storage = np.append(f_storage, np.expand_dims(frame, 0), axis=0)
     cap.release()
     return f_storage
