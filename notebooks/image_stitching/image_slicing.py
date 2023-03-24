@@ -20,13 +20,9 @@ def padding_before_sub(img, w_size):
         ceil(x / w_size) * w_size
         for x in img.shape[:-1]
     ])
-    diff_shape = tuple([
-        ts - ss for ss, ts in zip(source_shape, target_shape)
+    padding_shape = tuple([
+        (0, ts - ss) for ss, ts in zip(source_shape, target_shape)
     ])
-    padding_shape = tuple(
-        [(s // 2, s - (s // 2)) for s in diff_shape]
-    )
-
     # Padding:
     return np.stack([
         np.pad(img[:, :, ch], padding_shape)
