@@ -76,3 +76,14 @@ def slice_image(img, w_size):
         extract_sub_frames(crop_pad[:, :, ch], w_size, w_size)
         for ch in range(crop_pad.shape[-1])
     ]).transpose(1, 2, 0, 3, 4)
+
+
+def batch2image(batch, rows, cols):
+    _, channels, w_size, _ = batch.shape
+    from_batch = batch.reshape(
+        rows, cols, channels, w_size, w_size
+    )
+    return np.vstack([
+        np.hstack([*(from_batch[row, :].transpose(0, 2, 3, 1))])
+        for row in range(rows)
+    ])
