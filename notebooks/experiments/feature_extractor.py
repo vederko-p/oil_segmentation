@@ -35,7 +35,8 @@ def parse_img_label(img_p, lbl_p):
     if lbl_p.split('.') == 'txt':
         poly_masks, binary_mask = read_masks(lbl_p, img_h, img_w)
     else:
-        poly_masks, binary_mask = None, cv2.imread(lbl_p)
+        poly_masks = None
+        binary_mask = cv2.cvtColor(cv2.imread(lbl_p), cv2.COLOR_BGR2GRAY)
         if binary_mask.max() > 1:
             binary_mask = (binary_mask / 255).round().astype(int)
     return image, poly_masks, binary_mask
