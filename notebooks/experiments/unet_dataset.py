@@ -19,8 +19,8 @@ class UNetDataSet(Dataset):
     out_channels = 1
 
     def __init__(self, img_dir, mask_dir, image_size=256):
-        self.images = [os.path.join(img_dir, x) for x in os.listdir(img_dir)]
-        self.masks = [os.path.join(mask_dir, x) for x in os.listdir(mask_dir)]
+        self.images = [os.path.join(img_dir, x) for x in sorted(os.listdir(img_dir))]
+        self.masks = [os.path.join(mask_dir, x) for x in sorted(os.listdir(mask_dir))]
         self.image_size = image_size
 
         self.transform = transforms.Compose([
