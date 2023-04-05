@@ -32,7 +32,7 @@ def read_masks(filepath, img_h, img_w):
 def parse_img_label(img_p, lbl_p):
     image = cv2.cvtColor(cv2.imread(img_p), cv2.COLOR_BGR2RGB)
     img_h, img_w, img_ch = image.shape
-    if lbl_p.split('.') == 'txt':
+    if lbl_p.split('.')[-1] == 'txt':
         poly_masks, binary_mask = read_masks(lbl_p, img_h, img_w)
     else:
         poly_masks = None
