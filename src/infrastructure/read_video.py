@@ -16,7 +16,7 @@ def init_frames_storage(cap):
     return np.expand_dims(frame, 0)
 
 
-def read_video(video_path, step=10):
+def read_video(video_path, step=24):
     """
     Returns batch of RGB frames with shape (n, h, w, c).
     """
