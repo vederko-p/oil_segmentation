@@ -2,6 +2,8 @@
 import cv2
 import numpy as np
 
+from loguru import logger
+
 
 def check_cap(capture):
     if not capture.isOpened():
@@ -18,6 +20,7 @@ def read_video(video_path, step=10):
     """
     Returns batch of RGB frames with shape (n, h, w, c).
     """
+    logger.info('Reading video into frames')
     cap = cv2.VideoCapture(video_path)
     check_cap(cap)
     f_storage = init_frames_storage(cap)
