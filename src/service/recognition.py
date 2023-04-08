@@ -32,7 +32,7 @@ class SegmentationService:
         h, w, c = image.shape
         res = (
                 np.stack([mask for _ in range(c)]).transpose(1, 2, 0)
-                * np.ones((h, w, c)) * np.array([255, 0, 0])
+                * np.ones((h, w, c)) * np.array([87, 87, 0])
         ).astype(int)
         res += image
         res = np.where(res > 255, 255, res) * (image > 0)

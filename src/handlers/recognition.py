@@ -3,6 +3,7 @@ import os
 from tempfile import NamedTemporaryFile
 
 import cv2
+import numpy as np
 from loguru import logger
 
 from src.service.recognition import SegmentationService
@@ -31,11 +32,7 @@ class RecognitionHandler:
         input_filepath = os.path.join(self.output_dir_path, 'input.png')
         output_filepath = os.path.join(self.output_dir_path, 'output.png')
         cv2.imwrite(input_filepath, cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
-        cv2.imwrite(output_filepath, image_with_mask)
-        # TODO: Handle cv2 BGR to RGB convert error
-        # cv2.imwrite(  # TODO: Raises "depth is 4 error"
-        #     output_filepath, cv2.cvtColor(image_with_mask, cv2.COLOR_RGB2BGR)
-        # )
+        cv2.imwrite(output_filepath, np.flip(image_with_mask, axis=2))
 
     def handle(self, file) -> None:
         temp_name = self._save_temp_file(file)
