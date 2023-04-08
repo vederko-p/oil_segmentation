@@ -219,7 +219,7 @@ docker build -t ovis_mvp .
 docker run -p 8080:80 ovis_mvp
 ```
 
-
+Сервис доступен по адресу `localhost:8080`
 
 # Reference
 
