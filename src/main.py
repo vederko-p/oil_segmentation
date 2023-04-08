@@ -16,6 +16,7 @@ from src.service.recognition import SegmentationService
 
 # Config:
 OUTPUT_DIR_PATH = './src/static'
+os.makedirs(OUTPUT_DIR_PATH, exist_ok=True)
 
 
 app = FastAPI()
