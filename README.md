@@ -206,7 +206,7 @@ poetry install
 После установки зависимостей можно запустить сервис:
 
 ```Bash
-uvicorn src.main:app
+uvicorn src.main:app --host 0.0.0.0 --port 80
 ```
 
 **Via Dockerfile**
