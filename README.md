@@ -193,6 +193,34 @@ Intersection over Union (IoU).
 
 ![img.png](imgs/mmseg_result.png)
 
+## 5. Installation and startup
+
+**Locally**
+
+Необходимо установить `poetry` и установить зависимости проекта:
+
+```Bash
+poetry install
+```
+
+После установки зависимостей можно запустить сервис:
+
+```Bash
+uvicorn src.main:app
+```
+
+**Via Dockerfile**
+
+Для запуска сервиса как Docker контейнера, необходимо собрать образ
+и запустить контейнер:
+
+```Bash
+docker build -t ovis_mvp .
+docker run -p 8080:80 ovis_mvp
+```
+
+
+
 # Reference
 
 ## Data
