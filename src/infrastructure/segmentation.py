@@ -21,5 +21,6 @@ class DummySegmentation(SegmentationModel):
 
     def segment(self, image):
         h, w, c = image.shape
-        mask = (np.random.random((h, w)) > 0.5).astype(int)
+        mask = np.zeros((h, w))
+        mask[:h // 2, :w // 2] = 1
         return mask
