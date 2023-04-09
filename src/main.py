@@ -8,7 +8,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-from src.infrastructure.segmentation import DummySegmentation
+from src.infrastructure.segmentation import MMSegmentation
 
 from src.handlers.recognition import RecognitionHandler
 from src.service.recognition import SegmentationService
@@ -25,7 +25,10 @@ templates = Jinja2Templates(directory="src/templates")
 
 
 # Init model
-segmentation_model = DummySegmentation('path/to/weights')
+segmentation_model = MMSegmentation(
+    './src/weights/best.pth',
+    './src/configs/oil_seg_config.py'
+)
 
 # Init service
 segmentation_service = SegmentationService(segmentation_model)
