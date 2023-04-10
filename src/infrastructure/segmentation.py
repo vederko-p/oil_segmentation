@@ -34,7 +34,7 @@ class DummySegmentation(SegmentationModel):
 class MMSegmentation(SegmentationModel):
     def __init__(self, weights_path: str, config_file: str):
         super().__init__()
-        logger.info('Loading Dummy Segmentation model')
+        logger.info('Loading MM Segmentation model')
         self.cfg = mmcv.Config.fromfile(config_file)
         self.cfg.model.pretrained = True
         self.cfg.data.test.test_mode = True

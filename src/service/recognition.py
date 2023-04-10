@@ -29,6 +29,7 @@ class SegmentationService:
         return output
 
     def _draw_mask(self, image: np.ndarray, mask: np.ndarray):
+        mask = np.array(mask).sum(axis=0).astype(bool)
         h, w, c = image.shape
         res = (
                 np.stack([mask for _ in range(c)]).transpose(1, 2, 0)
