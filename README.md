@@ -147,7 +147,7 @@ Intersection over Union (IoU).
 
 ## 4.1. Oil Spill Detection Pipeline
 
-![System design](imgs/system_design.png)
+![System design](imgs/system_design3.png)
 
 Схема описывает логику:
 * передачи, хранения и обработки данных
@@ -243,4 +243,3 @@ docker run -p 8080:80 ovis_mvp
 13. https://github.com/ultralytics/ultralytics
 14. https://pytorch.org/hub/mateuszbuda_brain-segmentation-pytorch_unet/
 15. https://github.com/open-mmlab/mmsegmentation
-
