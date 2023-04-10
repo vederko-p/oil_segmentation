@@ -182,7 +182,7 @@ Intersection over Union (IoU).
 | Unet       | Adam        | 0.001   | BCE           | 30      | Small | 0.472
 | Unet       | AdamW       | 0.001   | BCE           | 30      | Small | 0.411
 | Unet       | AdamW       | 0.001   | BCE           | 90      | Big   | 0.423
-| MMSeg      | Adam        | 0.001   | BCE           | 1000    | Large | 0.524
+| MMSeg      | Adam        | 0.001   | BCE           | 100    | Large | 0.524
 
 Логирование экспериментов велось в ClearMl.
 
