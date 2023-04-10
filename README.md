@@ -177,12 +177,14 @@ Intersection over Union (IoU).
 | Model      | Optimizer   | Lr      | Loss Function | Epochs  | Data  | IoU
 |:-----------|:------------|:--------|:--------------|:--------|:------|:---
 | PW Log Reg | SGD         | 0.0001  | Log           | 100     | Small | 0.074
-| Classic    | **?**       | **?**   | **?**         | **?**   | **?** | **?**
+| Back Projection    | -       | -   | -         | -   | Half | 0.613
+| Back Projection + Gauss Blur    | -       | -   | -         | -   | Half | 0.600
+| Back Projection + Superpixels    | -       | -   | -         | -   | Half | 0.739
 | YoloV8     | **?**       | **?**   | **?**         | **?**   | Big   | **IoU**
 | Unet       | Adam        | 0.001   | BCE           | 30      | Small | 0.472
 | Unet       | AdamW       | 0.001   | BCE           | 30      | Small | 0.411
 | Unet       | AdamW       | 0.001   | BCE           | 90      | Big   | 0.423
-| MMSeg      | Adam        | 0.001   | BCE           | 100    | Large | 0.524
+| PSPNET (mmseg)      | SGD         | 0.01 - 0.0001   | CrossEntropyLoss           | 100    | Large | 0.524
 
 Логирование экспериментов велось в ClearMl.
 
