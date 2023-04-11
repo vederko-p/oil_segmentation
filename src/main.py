@@ -3,6 +3,7 @@ import os
 
 from loguru import logger
 
+from typing import List
 from fastapi import FastAPI, File, UploadFile, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -43,12 +44,12 @@ recognition_handler = RecognitionHandler(
 @app.get("/", response_class=HTMLResponse)
 async def main(request: Request):
     context = {'request': request}
-    return templates.TemplateResponse('upload_file.html', context)
+    return templates.TemplateResponse('index.html', context)
 
 
-@app.post("/uploadfile/")
-async def upload_file(request: Request, file: UploadFile = File(...)):
-    recognition_handler.handle(file)
+@app.post("/uploadfile")
+async def upload_file(request: Request, files:List[UploadFile] = File(...)):
+    recognition_handler.handle(files[0])
     logger.info('Showing segmentation results')
     j_input_filepath = os.path.join('/src/static', 'input.png')
     j_output_filepath = os.path.join('/src/static', 'output.png')
@@ -57,4 +58,4 @@ async def upload_file(request: Request, file: UploadFile = File(...)):
         'output_filepath': j_output_filepath,
         'request': request,
     }
-    return templates.TemplateResponse('segm_results.html', context)
+    return templates.TemplateResponse('result.html', context)
