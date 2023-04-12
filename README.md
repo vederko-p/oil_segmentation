@@ -1,6 +1,8 @@
 
 # Oil spill segmentation
 
+![](imgs/service_gif_big.gif)
+
 Иногда на плавучих нефтедобывающих вышках происходят аварии, результатами которых является
 разлив нефти. Обычно такие аварии характеризуются заметным изменением показателей на
 вышке, например, перепадами давления. Для подтверждения разлива и фиксации его
@@ -147,7 +149,7 @@ Intersection over Union (IoU).
 
 ## 4.1. Oil Spill Detection Pipeline
 
-![System design](imgs/system_design.png)
+![System design](imgs/system_design3.png)
 
 Схема описывает логику:
 * передачи, хранения и обработки данных
@@ -177,14 +179,22 @@ Intersection over Union (IoU).
 | Model      | Optimizer   | Lr      | Loss Function | Epochs  | Data  | IoU
 |:-----------|:------------|:--------|:--------------|:--------|:------|:---
 | PW Log Reg | SGD         | 0.0001  | Log           | 100     | Small | 0.074
-| Classic    | **?**       | **?**   | **?**         | **?**   | **?** | **?**
-| YoloV8     | **?**       | **?**   | **?**         | **?**   | Big   | **IoU**
+| Back Projection    | -       | -   | -         | -   | Half | 0.613
+| Back Projection + Gauss Blur    | -       | -   | -         | -   | Half | 0.600
+| Back Projection + Superpixels    | -       | -   | -         | -   | Half | 0.739
+| YoloV8 nano| SGD         | 0.01    | **?**         | 30      | Big   | 0.411
+| YoloV8 nano| Adam        | 0.001   | **?**         | 30      | Big   | 0.659
+| YoloV8 nano| AdamW       | 0.001   | **?**         | 30      | Big   | 0.645
+| YoloV8 s   | SGD         | 0.01    | **?**         | 30      | Big   | 0.55
+| YoloV8 s   | Adam        | 0.001   | **?**         | 30      | Big   | 0.679
+| YoloV8 s   | AdamW       | 0.001   | **?**         | 30      | Big   | 0.646
 | Unet       | Adam        | 0.001   | BCE           | 30      | Small | 0.472
 | Unet       | AdamW       | 0.001   | BCE           | 30      | Small | 0.411
 | Unet       | AdamW       | 0.001   | BCE           | 90      | Big   | 0.423
-| MMSeg      | Adam        | 0.001   | BCE           | 1000    | Large | 0.524
+| Pspnet (mmseg)      | SGD         | 0.01 - 0.0001   | CrossEntropyLoss           | 100    | Large | 0.524
+| Mask2Former (mmseg)      | AdamW         | 0.0001 - 0.0000001   | CrossEntropyLoss           | 60    | Large | 0.559
 
-Логирование экспериментов велось в ClearMl.
+Логирование экспериментов велось в [ClearMl](https://app.clear.ml/projects/1efe18d65d9e45a1ba1d8df869e5e62e/experiments?columns=selected&columns=type&columns=name&columns=tags&columns=status&columns=project.name&columns=users&columns=started&columns=last_update&columns=last_iteration&columns=parent.name&order=-last_update&filter=).
 
 ## 4.3. System Experiments
 
@@ -192,6 +202,34 @@ Intersection over Union (IoU).
 Результат обработки тестового видео:
 
 ![img.png](imgs/mmseg_result.png)
+
+## 5. Installation and startup
+
+**Locally**
+
+Необходимо установить `poetry` и установить зависимости проекта:
+
+```Bash
+poetry install
+```
+
+После установки зависимостей можно запустить сервис:
+
+```Bash
+uvicorn src.main:app --host 0.0.0.0 --port 80
+```
+
+**Via Dockerfile**
+
+Для запуска сервиса как Docker контейнера, необходимо собрать образ
+и запустить контейнер:
+
+```Bash
+docker build -t ovis_mvp .
+docker run -p 8080:80 ovis_mvp
+```
+
+Сервис доступен по адресу `localhost:8080`
 
 # Reference
 
@@ -215,4 +253,3 @@ Intersection over Union (IoU).
 13. https://github.com/ultralytics/ultralytics
 14. https://pytorch.org/hub/mateuszbuda_brain-segmentation-pytorch_unet/
 15. https://github.com/open-mmlab/mmsegmentation
-

@@ -10,6 +10,12 @@ packages = [{include = "oil_spill_segmentation"}]
 python = "^3.9"
 clearml = "^1.9.3"
 opencv-python = "^4.7.0.72"
+loguru = "^0.6.0"
+uvicorn = "^0.21.1"
+fastapi = "^0.95.0"
+python-multipart = "^0.0.6"
+jinja2 = "^3.1.2"
+pydantic = "^1.10.7"
 
 
 [build-system]
