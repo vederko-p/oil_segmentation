@@ -60,7 +60,7 @@ class MMSegmentation(SegmentationModel):
 
 
 if __name__ == '__main__':
-    segmentator = MMSegmentation('../weights/best.pth', '../configs/oil_seg_config.py')
+    segmentator = MMSegmentation('../weights/pspnet.pth', '../configs/oil_seg_config.py')
     img = mmcv.imread('../static/input.png')
     mask = segmentator.segment(img)
     res_img = segmentator.show_final(img, mask)

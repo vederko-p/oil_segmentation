@@ -184,7 +184,8 @@ Intersection over Union (IoU).
 | Unet       | Adam        | 0.001   | BCE           | 30      | Small | 0.472
 | Unet       | AdamW       | 0.001   | BCE           | 30      | Small | 0.411
 | Unet       | AdamW       | 0.001   | BCE           | 90      | Big   | 0.423
-| PSPNET (mmseg)      | SGD         | 0.01 - 0.0001   | CrossEntropyLoss           | 100    | Large | 0.524
+| Pspnet (mmseg)      | SGD         | 0.01 - 0.0001   | CrossEntropyLoss           | 100    | Large | 0.524
+| Mask2Former (mmseg)      | AdamW         | 0.0001 - 0.0000001   | CrossEntropyLoss           | 60    | Large | 0.559
 
 Логирование экспериментов велось в ClearMl.
 
