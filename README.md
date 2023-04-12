@@ -194,7 +194,7 @@ Intersection over Union (IoU).
 | Pspnet (mmseg)      | SGD         | 0.01 - 0.0001   | CrossEntropyLoss           | 100    | Large | 0.524
 | Mask2Former (mmseg)      | AdamW         | 0.0001 - 0.0000001   | CrossEntropyLoss           | 60    | Large | 0.559
 
-Логирование экспериментов велось в ClearMl.
+Логирование экспериментов велось в [ClearMl](https://app.clear.ml/projects/1efe18d65d9e45a1ba1d8df869e5e62e/experiments?columns=selected&columns=type&columns=name&columns=tags&columns=status&columns=project.name&columns=users&columns=started&columns=last_update&columns=last_iteration&columns=parent.name&order=-last_update&filter=).
 
 ## 4.3. System Experiments
 
