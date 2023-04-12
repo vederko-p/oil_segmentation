@@ -182,7 +182,12 @@ Intersection over Union (IoU).
 | Back Projection    | -       | -   | -         | -   | Half | 0.613
 | Back Projection + Gauss Blur    | -       | -   | -         | -   | Half | 0.600
 | Back Projection + Superpixels    | -       | -   | -         | -   | Half | 0.739
-| YoloV8     | **?**       | **?**   | **?**         | **?**   | Big   | **IoU**
+| YoloV8 nano| SGD         | 0.01    | **?**         | 30      | Big   | 0.411
+| YoloV8 nano| Adam        | 0.001   | **?**         | 30      | Big   | 0.659
+| YoloV8 nano| AdamW       | 0.001   | **?**         | 30      | Big   | 0.645
+| YoloV8 s   | SGD         | 0.01    | **?**         | 30      | Big   | 0.55
+| YoloV8 s   | Adam        | 0.001   | **?**         | 30      | Big   | 0.679
+| YoloV8 s   | AdamW       | 0.001   | **?**         | 30      | Big   | 0.646
 | Unet       | Adam        | 0.001   | BCE           | 30      | Small | 0.472
 | Unet       | AdamW       | 0.001   | BCE           | 30      | Small | 0.411
 | Unet       | AdamW       | 0.001   | BCE           | 90      | Big   | 0.423
